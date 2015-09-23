@@ -87,11 +87,11 @@
           <div class="row">
             <div class="col-sm-5">
               <h3 style="text-align:center">デートスケジュール</h3>
-              <table class="table">
-                <a href=""><tr><td>10月10日11:15</td><td>@渋谷駅ハチ公口</td></tr></a><!--ページ内リンクを貼り付け-->
-                <a href=""><tr><td>10月10日12:35</td><td>@スターバックスコーヒー</td></tr></a>
-                <a href=""><tr><td>10月10日14:15</td><td>@宇田川カフェ</td></tr></a>
-                <a href=""><tr><td>10月10日18:23</td><td>@センター街</td></tr></a>
+              <table class="table table-hover">
+                <tr><td style="width:200px;height:40px;"><a href="#tweet1" class="fa fa-clock-o" style="display:block;width:100%;height:100%;">10月10日11:15</a></td><td style="width:250px;height:40px;"><a href="#tweet1" class="fa fa-map-marker" style="display:block;width:100%;height:100%;">渋谷駅ハチ公口</a></td></tr><!--ページ内リンクを貼り付け-->
+                <tr><td style="width:200px;height:40px;"><a href="#tweet2" class="fa fa-clock-o" style="display:block;width:100%;height:100%;">10月10日12:35</a></td><td style="width:250px;height:40px;"><a href="#tweet2" class="fa fa-map-marker" style="display:block;width:100%;height:100%;">スターバックスコーヒー</a></td></tr><!--ページ内リンクを貼り付け-->
+                <tr><td style="width:200px;height:40px;"><a href="#tweet3" class="fa fa-clock-o" style="display:block;width:100%;height:100%;">10月10日14:15</a></td><td style="width:250px;height:40px;"><a href="#tweet3" class="fa fa-map-marker" style="display:block;width:100%;height:100%;">宇田川カフェ</a></td></tr><!--ページ内リンクを貼り付け-->
+                <tr><td style="width:200px;height:40px;"><a href="#tweet4" class="fa fa-clock-o" style="display:block;width:100%;height:100%;">10月10日18:23</a></td><td style="width:250px;height:40px;"><a href="#tweet4" class="fa fa-map-marker" style="display:block;width:100%;height:100%;">センター街</a></td></tr><!--ページ内リンクを貼り付け-->
               </table>
             </div>
             <div class="col-sm-7">
@@ -102,7 +102,7 @@
                   <i class="fa fa-map-marker" style="font-size:16px;font-weight:bold;"> 渋谷</i>
                 </div>
                 <div class="col-sm-5">
-                  <i class="fa fa-clock-o" style="font-size:16px;font-weight:bold;"> 2015年10月10日</i>
+                  <i class="fa fa-calendar" style="font-size:16px;font-weight:bold;"> 2015年10月10日</i>
                 </div>
                 <div class="col-sm-3">
                   <i class="fa fa-jpy" style="font-size:16px;font-weight:bold;"> 4000(予算)</i>
@@ -147,7 +147,8 @@
         <div class="row" style="margin-top:40px;">
           <!--デート詳細-->
           <div class="col-sm-8">
-            <div class="row" style="border:1px solid #ccc;">
+            <!--一つのツイートの塊-->
+            <div class="row" style="border:1px solid #ccc;" id="tweet1">
               <div class="col-sm-6" >
                 <div style="width:300px;height:200px; overflow:hidden;">
                   <img src="img/photo1.jpg" style="width:350px;">
@@ -165,6 +166,7 @@
                 </div>
               </div>
             </div>
+            <!--一つのツイートの塊終了-->
           </div>
           <!--デート詳細終了-->
 
@@ -172,7 +174,23 @@
 
 
           <!--サイドバー開始-->
-          <div class="col-sm-4"></div>        
+          <div class="col-sm-offset-1 col-sm-3" style="border:1px solid #ccc;">
+            <h4 style="text-align:center">似ているプラン</h4>
+            <!--似ているプラン-->
+            <hr>
+            <a href="date.php"><!--このデートプランに飛ぶリンク-->
+            <div style="background-color:#FF8C00; padding:5px;">
+              <div style="overflow:hidden; width:100%; height:180px;">
+              <img src="img/photo1.jpg" style="width:100%;">
+              </div>
+              <h4 >自由が丘スイーツ満喫デート</h4>
+              <p class="fa fa-map-marker" style="font-size:13px;font-weight:bold;text-align:center;width:100%;">自由が丘周辺</p>
+              <p>彼女が好きなデザートを巡りに自由が丘に行ってきました！自由が丘は歩いてるだけで楽しい街です！スイーツ、雑貨巡りにおすすめです！</p>
+            </div>
+            </a>
+            <!--似ているプラン終了-->
+
+          </div>        
           <!--サイドバー終了-->
 
         </div>
@@ -187,5 +205,18 @@
   
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
+
+  <script>
+  $(function(){
+    $('a[href^=#]').click(function(){ 
+        var speed = 500; //移動完了までの時間(sec)を指定
+        var href= $(this).attr("href"); 
+        var target = $(href == "#" || href == "" ? 'html' : href);
+        var position = target.offset().top;
+        $("html, body").animate({scrollTop:position}, speed, "swing");
+        return false;
+    });
+});
+  </script>
 </body>
 </html>
